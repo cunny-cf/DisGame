@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Game Spoof Script Builder</title>
+    <style>
+        :root {
+            --bg: #1e1f22;
+            --surface: #2b2d31;
+            --primary: #5865f2;
+            --text: #dbdee1;
+            --muted: #949ba4;
+        }
+        * { box-sizing: border-box; }
+        body {
+            margin: 0;
+            min-height: 100vh;
+            background: var(--bg);
+            color: var(--text);
+            font-family: "gg sans", Whitney, "Helvetica Neue", Helvetica, Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 40px 20px;
+        }
+        h1 { margin: 0 0 8px; font-size: 28px; }
+        p { color: var(--muted); margin: 0 0 24px; text-align: center; max-width: 560px; }
+        .card {
+            background: var(--surface);
+            border-radius: 12px;
+            padding: 24px;
+            width: 100%;
+            max-width: 900px;
+            box-shadow: 0 8px 32px rgba(0,0,0,.4);
+        }
+        .row {
+            display: flex;
+            gap: 12px;
+            margin-bottom: 16px;
+            flex-wrap: wrap;
+        }
+        button {
+            background: var(--primary);
+            color: white;
+            border: none;
+            border-radius: 8px;
+            padding: 12px 20px;
+            font-size: 15px;
+            font-weight: 600;
+            cursor: pointer;
+        }
+        button:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
+        button:hover:not(:disabled) { filter: brightness(1.1); }
+        #status {
+            color: var(--muted);
+            font-size: 14px;
+            align-self: center;
+        }
+        textarea {
+            width: 100%;
+            height: 420px;
+            background: #1e1f22;
+            color: #dbdee1;
+            border: 1px solid #1a1b1e;
+            border-radius: 8px;
+            padding: 16px;
+            font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+            font-size: 13px;
+            resize: vertical;
+            line-height: 1.45;
+        }
+        .hint {
+            margin-top: 12px;
+            font-size: 13px;
+            color: var(--muted);
+        }
+        a { color: #00a8fc; }
+    </style>
+</head>
+<body>
+    <h1>Game Spoof Script Builder</h1>
+    <p>
+        Builds a ready-to-paste Discord console script with the full game list from
+        <a href="https://github.com/lutris/website/blob/master/discord-app-ids.json" target="_blank">Lutris</a>.
+    </p>
+
+    <div class="card">
+        <div class="row">
+            <button id="buildBtn">Rebuild script</button>
+            <button id="copyBtn" disabled>Copy to clipboard</button>
+            <span id="status">Loading…</span>
+        </div>
+
+        <textarea id="output" readonly placeholder="Generated script will appear here…"></textarea>
+
+        <p class="hint">
+            1. Click <strong>Copy to clipboard</strong><br>
+            2. Open Discord Desktop → <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>I</kbd> → Console<br>
+            3. Paste and press Enter → press <kbd>F7</kbd> to open the picker
+        </p>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

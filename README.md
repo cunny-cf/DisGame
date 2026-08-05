@@ -17,6 +17,7 @@ DisGame
 
 ## Acknowledgements
 - This script borrows codes from [aamiaa](https://gist.github.com/aamiaa/204cd9d42013ded9faf646fae7f89fbb)
+- This script uses [Lutris's Discord App ID list](https://raw.githubusercontent.com/lutris/website/refs/heads/master/discord-app-ids.json) for the initial list of games
 - Discord generally dislikes people spoofing, so use at your own risk
 
 ## How to Add Games
